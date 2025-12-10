@@ -1,5 +1,6 @@
-# 237. Delete Node in a Linked List
-# Write a function to delete a node (except the tail) in a singly linked list,
+# 19. Remove Nth Node From End of Linked List
+# Given the head of a linked list, remove the nth node from the end of the list
+
 
 class Node:
     def __init__(self , data):
@@ -36,13 +37,34 @@ def insertAtEnd(head , data):
     return curr.next
 insertAtEnd(head , 9)
 insertAtEnd(head , 3)
+insertAtEnd(head , 8)
+insertAtEnd(head , 4)
 
-# Delete a node given only access to that node
-def deleteNode(node):
-    node.data = node.next.data
-    node.next = node.next.next
+# Deletion nth node from end
+def deleteAtKthPosition(head , n):
+    p1 = head
+    p2 = head 
     
+    for i in range(n):
+        p2 = p2.next 
+        
+    if p2 == None:
+        head =  head.next
+        return head
+    
+    while p2.next != None:
+        p1 = p1.next 
+        p2 = p2.next 
+    
+    p1.next = p1.next.next 
+    
+    
+    return head
 
-deleteNode(c)
-
+            
+    
+        
+traverse(head)
+print()
+deleteAtKthPosition(head ,6)
 traverse(head)

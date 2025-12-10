@@ -1,5 +1,4 @@
-# 237. Delete Node in a Linked List
-# Write a function to delete a node (except the tail) in a singly linked list,
+# 141. Linked List Cycle
 
 class Node:
     def __init__(self , data):
@@ -36,13 +35,22 @@ def insertAtEnd(head , data):
     return curr.next
 insertAtEnd(head , 9)
 insertAtEnd(head , 3)
+insertAtEnd(head , 8)
+insertAtEnd(head , 4)
 
-# Delete a node given only access to that node
-def deleteNode(node):
-    node.data = node.next.data
-    node.next = node.next.next
+
+# Detect cycle exist or not.
+def hasCycle(head):
+    slow = head
+    fast = head
     
+    while fast != None and fast.next != None:
+        slow = slow.next 
+        fast = fast.next 
+        
+        if slow == fast:
+            return True
+    return False
 
-deleteNode(c)
-
-traverse(head)
+print(hasCycle(head))
+         

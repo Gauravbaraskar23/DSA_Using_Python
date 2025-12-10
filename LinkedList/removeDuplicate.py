@@ -1,5 +1,6 @@
-# 237. Delete Node in a Linked List
-# Write a function to delete a node (except the tail) in a singly linked list,
+# 83. Remove Duplicates from an sorted Linked List
+
+
 
 class Node:
     def __init__(self , data):
@@ -8,8 +9,8 @@ class Node:
         
             
 a = Node(4)
-b = Node(5)
-c  = Node(1)
+b = Node(4)
+c  = Node(5)
 
 head = a
 head.next = b
@@ -35,14 +36,25 @@ def insertAtEnd(head , data):
     
     return curr.next
 insertAtEnd(head , 9)
-insertAtEnd(head , 3)
+insertAtEnd(head , 9)
+insertAtEnd(head , 10)
+insertAtEnd(head , 10)
 
-# Delete a node given only access to that node
-def deleteNode(node):
-    node.data = node.next.data
-    node.next = node.next.next
+
+
+# Remove Duplicates
+def removeDuplicates(head):
+    curr = head
+    if head == None or head.next == None:
+        return head
     
+    while curr != None and curr.next != None:
+        if curr.data == curr.next.data:
+            curr.next = curr.next.next 
+        else:
+            curr = curr.next 
+            
+    return head
 
-deleteNode(c)
-
+removeDuplicates(head)
 traverse(head)

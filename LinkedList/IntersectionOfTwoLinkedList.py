@@ -1,5 +1,4 @@
-# 237. Delete Node in a Linked List
-# Write a function to delete a node (except the tail) in a singly linked list,
+# 160. Intersection of two linked list.
 
 class Node:
     def __init__(self , data):
@@ -36,13 +35,37 @@ def insertAtEnd(head , data):
     return curr.next
 insertAtEnd(head , 9)
 insertAtEnd(head , 3)
+insertAtEnd(head , 8)
+insertAtEnd(head , 4)
 
-# Delete a node given only access to that node
-def deleteNode(node):
-    node.data = node.next.data
-    node.next = node.next.next
-    
 
-deleteNode(c)
+#  Intersection of two linked list.
+def intersectionOfTwoList(headA , headB):
+    p1 = headA
+    p2 = headB
+    count = 0
+    while True:
+        if p1 == p2:
+            return p1
+        
+        
+        p1 = p1.next 
+        p2 = p2.next 
+        
+        if p2 == None:
+            count += 1
+            p2 = headA
+        
+        if p1 == None:
+            p1 = headB
+            
 
-traverse(head)
+        if count > 1:
+            return None
+         
+intersectionOfTwoList(head , head)
+
+     
+
+
+# Intersection of two linked list using length
