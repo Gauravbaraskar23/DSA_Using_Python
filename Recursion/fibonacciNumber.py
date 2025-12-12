@@ -1,1 +1,10 @@
-# 509. Fibonacci Number
+# 509. Fibonacci Number 
+# find nth number
+
+def fib(n):
+    if n == 0 or n == 1:
+        return n
+    
+    return fib(n-1) + fib(n-2)
+
+print(fib(1))
